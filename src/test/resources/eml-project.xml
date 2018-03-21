@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-<pro:researchProject
-    xmlns:pro="eml://ecoinformatics.org/project-2.2.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="eml://ecoinformatics.org/project-2.2.0 xsd/eml-project.xsd">
+<pro:researchProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="eml://ecoinformatics.org/project-2.2.0 ../../../xsd/eml-project.xsd"
+ xmlns:pro="eml://ecoinformatics.org/project-2.2.0">
 
   <title>fish counting project</title>
+  <synopsis>This is a project about counting fish.
+  </synopsis>
   <personnel>
     <organizationName>
       University of California
@@ -23,4 +24,58 @@
     <onlineUrl>www.something.org/~joe</onlineUrl>
     <role>fish counter</role>
   </personnel>
+  <projectDescription>
+    <markdown><![CDATA[
+      Problem Statement
+      ---
+      This is a problem statement that includes a link to a picture somewhere on the knb. 
+      ![Commercial fishing boats](knb.109201.1)
+      Goals
+      ---
+      This project has a few goals:
+      * Goal A
+      * Goal B
+      * Goal C
+      ![Sockeye](knb.109200.1)
+      Our Science
+      ---
+      Here are some things that we've been working on.
+      ![Map of size declines](knb.109199.1)
+      Who We Are
+      ---
+      Here's a description of the members of this project and a picture of us.
+      ![Team](knb.109198.1)]]></markdown>
+  </projectDescription>
+  <resultsOverview>
+    <markdown><![CDATA[
+      Topic 1
+      ---
+      We did these analyses and came up with these preliminary results
+      ![Escapement](knb.109196.1)
+      Topic 2
+      ---
+      ![ASL](knb.109197.1)
+      Topic 3
+      ---
+      ![Map](knb.109199.1)]]>
+    </markdown>
+  </resultsOverview>
+  <funding>
+    <para>Funding is from a grant from the National Science Foundation.</para>
+    <para>Here is where we might also make our acknowledgements</para>
+  </funding>
+  <logo>
+    <markdown>
+      Theoretically, this could be a markdown.
+    </markdown>
+  </logo>
+  <award>
+    <funderName>National Science Foundation</funderName>
+    <funderIdentifier>https://doi.org/10.13039/00000001</funderIdentifier>
+    <awardNumber>1546024</awardNumber>
+    <title>Scientia Arctica: A Knowledge Archive for Discovery and Reproducible Science in the Arctic</title>
+    <awardUrl>https://www.nsf.gov/awardsearch/showAward?AWD_ID=1546024</awardUrl>
+  </award>
+  
+  
 </pro:researchProject>

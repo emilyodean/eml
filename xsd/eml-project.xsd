@@ -112,6 +112,18 @@
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
+        <xs:element name="synopsis" type="res:NonEmptyStringType" minOccurs="1">
+          <xs:annotation>
+            <xs:appinfo>
+              <doc:tooltip>Project Synopsis</doc:tooltip>
+              <doc:summary>Brief synopsis of project for the homepage</doc:summary>
+              <doc:description>A brief synopsis of project to follow the project title on the homepage</doc:description>
+              <doc:example>We are a collaborative group of scientists and community memmbers
+              devoted to preserving species diversity in Tenessee riparian habitats.</doc:example>
+              
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
         <xs:element name="personnel" maxOccurs="unbounded">
           <xs:annotation>
             <xs:appinfo>
@@ -203,6 +215,25 @@
               Open Funder Registry (included in the EML distribution, but which is
               also update periodically from the Open Funder Registry).
               </doc:description>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="projectDescription" type="txt:TextType" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:appinfo>
+              <doc:tooltip>Markdown with project description text and photos</doc:tooltip>
+              <doc:summary>Markdown with project description text and photos</doc:summary>
+              <doc:description>Markdown with project description text and photos</doc:description>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="resultsOverview" type="txt:TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:appinfo>
+              <doc:tooltip>Markdown with results from analyses.</doc:tooltip>
+              <doc:summary>Markdown with results including tables, figures, maps, and other summary information.</doc:summary>
+              <doc:description>The results overview markdown can include any figures and descriptive text
+                from analyses conducted with the project data holdings.</doc:description>
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
@@ -415,6 +446,15 @@
               </xs:element>
             </xs:choice>
           </xs:complexType>
+        </xs:element>
+        <xs:element name="logos" type="txt:TextType" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:appinfo>
+              <doc:tooltip>Project logo</doc:tooltip>
+              <doc:summary>Logo for the project</doc:summary>
+              <doc:description>This is a logo that represents the project</doc:description>
+            </xs:appinfo>
+          </xs:annotation>
         </xs:element>
         <xs:element name="relatedProject" type="ResearchProjectType" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
