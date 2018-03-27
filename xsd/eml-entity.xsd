@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:con="eml://ecoinformatics.org/constraint-2.2.0" xmlns:res="eml://ecoinformatics.org/resource-2.2.0" xmlns:doc="eml://ecoinformatics.org/documentation-2.2.0" xmlns:cov="eml://ecoinformatics.org/coverage-2.2.0" xmlns:phys="eml://ecoinformatics.org/physical-2.2.0" xmlns:md="eml://ecoinformatics.org/methods-2.2.0" xmlns:att="eml://ecoinformatics.org/attribute-2.2.0" xmlns:txt="eml://ecoinformatics.org/text-2.2.0" xmlns:sem="eml://ecoinformatics.org/semantics-2.2.0" xmlns="eml://ecoinformatics.org/entity-2.2.0" targetNamespace="eml://ecoinformatics.org/entity-2.2.0">
-  <xs:import namespace="eml://ecoinformatics.org/documentation-2.2.0" schemaLocation="eml-documentation.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:con="eml://ecoinformatics.org/constraint-2.2.0"
+  xmlns:res="eml://ecoinformatics.org/resource-2.2.0"
+  xmlns:doc="eml://ecoinformatics.org/documentation-2.2.0"
+  xmlns:cov="eml://ecoinformatics.org/coverage-2.2.0"
+  xmlns:phys="eml://ecoinformatics.org/physical-2.2.0"
+  xmlns:md="eml://ecoinformatics.org/methods-2.2.0"
+  xmlns:att="eml://ecoinformatics.org/attribute-2.2.0"
+  xmlns:txt="eml://ecoinformatics.org/text-2.2.0"
+  xmlns:sem="eml://ecoinformatics.org/semantics-2.2.0"
+  xmlns:ent="eml://ecoinformatics.org/entity-2.2.0" xmlns="eml://ecoinformatics.org/entity-2.2.0"
+  targetNamespace="eml://ecoinformatics.org/entity-2.2.0">
+  <xs:import namespace="eml://ecoinformatics.org/documentation-2.2.0"
+    schemaLocation="eml-documentation.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/coverage-2.2.0" schemaLocation="eml-coverage.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/physical-2.2.0" schemaLocation="eml-physical.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/methods-2.2.0" schemaLocation="eml-methods.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/attribute-2.2.0" schemaLocation="eml-attribute.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/resource-2.2.0" schemaLocation="eml-resource.xsd"/>
-  <xs:import namespace="eml://ecoinformatics.org/constraint-2.2.0" schemaLocation="eml-constraint.xsd"/>
+  <xs:import namespace="eml://ecoinformatics.org/constraint-2.2.0"
+    schemaLocation="eml-constraint.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/text-2.2.0" schemaLocation="eml-text.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/semantics-2.2.0" schemaLocation="eml-semantics.xsd"/>
   <xs:annotation>
@@ -67,7 +80,7 @@
             </para>
             <para>
               The eml-entity module, like other modules, may be
-              "referenced" via the &lt;references&gt; tag.  This
+              "referenced" via the &lt;references> tag.  This
               allows an entity document to be described once, and then
               used as a reference in other locations within the EML document
               via its ID.
@@ -113,7 +126,8 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
-          <xs:element name="constraint" type="con:ConstraintType" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="constraint" type="con:ConstraintType" minOccurs="0"
+            maxOccurs="unbounded">
             <xs:annotation>
               <xs:appinfo>
                 <doc:tooltip>Constraint</doc:tooltip>
@@ -282,8 +296,8 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
-      <xs:element name="annotation" type="sem:SemanticAnnotation"
-                  minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="annotation" type="sem:SemanticAnnotation" minOccurs="0"
+        maxOccurs="unbounded">
         <xs:annotation>
           <xs:appinfo>
             <doc:tooltip>Semantic Annotation</doc:tooltip>
@@ -309,4 +323,77 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="ImageListType">
+    <xs:annotation>
+      <xs:appinfo>
+        <doc:tooltip>Image List</doc:tooltip>
+        <doc:summary>List of images</doc:summary>
+        <doc:description>This complexType defines the structure of the
+          imageList element.</doc:description>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="image" type="ImageType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ImageType">
+    <xs:sequence>
+      <xs:element name="imageFormat" type="res:NonEmptyStringType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:appinfo>
+            <doc:tooltip>Image format</doc:tooltip>
+            <doc:summary>Format of the image.</doc:summary>
+            <doc:description>Acceptible image formats are PNG, JPEG, BMP, TIFF, GIF</doc:description>
+            <doc:example>PNG</doc:example>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="caption" type="res:NonEmptyStringType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:appinfo>
+            <doc:tooltip>Image caption</doc:tooltip>
+            <doc:summary>A caption or image title to be displayed with the image.</doc:summary>
+            <doc:description>This field can hold a descriptive caption for the image 
+            or an image title. Image logos will only be displayed in certain contexts.</doc:description>
+            <doc:example>Fig. 1. Escapement counts over time.</doc:example>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="attribution" type="res:NonEmptyStringType" minOccurs="0">
+        <xs:annotation>
+          <xs:appinfo>
+            <doc:tooltip>Image attribution</doc:tooltip>
+            <doc:summary>Information regarding image source</doc:summary>
+            <doc:description>This field provides attribution information for the image 
+            which may include photographer or name of an organization or website from 
+            which the image was obtained.</doc:description>
+            <doc:example>Photographer: M Jones</doc:example>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="licensed" type="res:LicenseType" minOccurs="0"/>
+      <xs:element name="imageURL" type="res:UrlType" minOccurs="0">
+        <xs:annotation>
+          <xs:appinfo>
+            <doc:tooltip>Image URL</doc:tooltip>
+            <doc:summary>Optional URL if image is hosted on a website</doc:summary>
+            <doc:description>This field can contain a URL pointing to the original
+            image source.</doc:description>
+            <doc:example>https://testimages.com/link_to_image.png</doc:example>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="imageBytes" type="res:InlineType" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:appinfo>
+            <doc:tooltip>Image bytes</doc:tooltip>
+            <doc:summary>Base64 encoded image</doc:summary>
+            <doc:description>Actual image bytes should be contained inline
+            in this field.</doc:description>
+            <doc:example/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

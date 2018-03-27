@@ -8,6 +8,7 @@
     xmlns:cov="eml://ecoinformatics.org/coverage-2.2.0"
     xmlns:cit="eml://ecoinformatics.org/literature-2.2.0"
     xmlns:res="eml://ecoinformatics.org/resource-2.2.0"
+    xmlns:ent="eml://ecoinformatics.org/entity-2.2.0"
     xmlns="eml://ecoinformatics.org/project-2.2.0"
     targetNamespace="eml://ecoinformatics.org/project-2.2.0">
   <xs:import namespace="eml://ecoinformatics.org/documentation-2.2.0"
@@ -22,6 +23,8 @@
   schemaLocation="eml-literature.xsd"/>
   <xs:import namespace="eml://ecoinformatics.org/text-2.2.0"
   schemaLocation="eml-text.xsd"/>
+  <xs:import namespace="eml://ecoinformatics.org/entity-2.2.0"
+    schemaLocation="eml-entity.xsd"/>
   <xs:annotation>
     <xs:documentation>'$RCSfile: eml-project.xsd,v $'
        Copyright: 1997-2002 Regents of the University of California,
@@ -218,22 +221,47 @@
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
-        <xs:element name="projectDescription" type="txt:TextType" minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="acknowledgments" type="txt:TextType" minOccurs="0">
           <xs:annotation>
             <xs:appinfo>
-              <doc:tooltip>Markdown with project description text and photos</doc:tooltip>
-              <doc:summary>Markdown with project description text and photos</doc:summary>
-              <doc:description>Markdown with project description text and photos</doc:description>
+              <doc:tooltip>Project acknowledgements</doc:tooltip>
+              <doc:summary>Acknoweledgement of individuals and groups that contributed to the project</doc:summary>
+              <doc:description>The acknowledgement field is used to provide acknowledgements
+              to any individuals or groups that may have assisted on the project but are not 
+              directly releated to funding or an award.</doc:description>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="logos" type="ent:ImageListType" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:appinfo>
+              <doc:tooltip>Project logo</doc:tooltip>
+              <doc:summary>Logo for the project</doc:summary>
+              <doc:description>This is a logo that represents the project. It should be square (same x and y dimensions)
+              and </doc:description>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="projectDescription" type="txt:TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:appinfo>
+              <doc:tooltip>Project description</doc:tooltip>
+              <doc:summary>Project overview and description with information about the purpose of the project</doc:summary>
+              <doc:description>This field is used to describe a project and will be presented
+              on the project landing page. Content can either be a markdown document to include images 
+              and basic formatting, or plain text. This should include information on the purpose of the project
+              and any other useful information for visitors to the landing page.</doc:description>
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
         <xs:element name="resultsOverview" type="txt:TextType" minOccurs="0">
           <xs:annotation>
             <xs:appinfo>
-              <doc:tooltip>Markdown with results from analyses.</doc:tooltip>
-              <doc:summary>Markdown with results including tables, figures, maps, and other summary information.</doc:summary>
-              <doc:description>The results overview markdown can include any figures and descriptive text
-                from analyses conducted with the project data holdings.</doc:description>
+              <doc:tooltip>Project results or analyses</doc:tooltip>
+              <doc:summary>Project results can include tables, figures, maps, and other summary information.</doc:summary>
+              <doc:description>This section can contain project results or any preliminary analyses and figures.
+                This can be a markdown document which includes figures and formatted text from analyses conducted 
+                with the project data holdings, or can be plain text.</doc:description>
             </xs:appinfo>
           </xs:annotation>
         </xs:element>
@@ -446,15 +474,6 @@
               </xs:element>
             </xs:choice>
           </xs:complexType>
-        </xs:element>
-        <xs:element name="logos" type="txt:TextType" minOccurs="0" maxOccurs="unbounded">
-          <xs:annotation>
-            <xs:appinfo>
-              <doc:tooltip>Project logo</doc:tooltip>
-              <doc:summary>Logo for the project</doc:summary>
-              <doc:description>This is a logo that represents the project</doc:description>
-            </xs:appinfo>
-          </xs:annotation>
         </xs:element>
         <xs:element name="relatedProject" type="ResearchProjectType" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
