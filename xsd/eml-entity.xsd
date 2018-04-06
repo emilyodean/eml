@@ -383,7 +383,7 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
-      <xs:element name="imageBytes" type="res:InlineType" minOccurs="1" maxOccurs="1">
+      <xs:element name="imageBytes" type="res:InlineType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:appinfo>
             <doc:tooltip>Image bytes</doc:tooltip>
